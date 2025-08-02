@@ -1,11 +1,10 @@
-FROM alpine:3.21
+FROM python:3
 
 WORKDIR /usr/src/app
 
-RUN chmod 777 /usr/src/app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN apk update && apk add curl nodejs npm && curl -sSf https://sshx.io/get | sh
-
-CMD ["sshx"]
+CMD [ "python", "./your-daemon-or-script.py" ]
