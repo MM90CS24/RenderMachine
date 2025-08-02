@@ -8,4 +8,4 @@ COPY . .
 
 RUN apk update && apk add curl nodejs npm && curl -sSf https://sshx.io/get | sh
 
-CMD ["bash", "start.sh"]
+CMD ["sshx"]
